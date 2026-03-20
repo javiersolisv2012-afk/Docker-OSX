@@ -1,1 +1,13 @@
 
+name: macOS-Javi
+on: workflow_dispatch
+jobs:
+  build:
+    runs-on: macos-latest
+    steps:
+    - name: Connect Ngrok
+      run: |
+        brew install --cask ngrok
+        ngrok authtoken ${{ secrets.NGROK_AUTHTOKEN }}
+        ngrok tcp 5900 &
+        sleep 3600
