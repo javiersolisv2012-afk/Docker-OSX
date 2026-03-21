@@ -1,8 +1,10 @@
-name: macOS-Tmate
+name: macOS-Final
 on: workflow_dispatch
 jobs:
   build:
     runs-on: macos-latest
     steps:
-    - name: Entrar a la Mac con Tmate
-      uses: mxschmitt/action-tmate@v3
+    - name: Connect Pagekite
+      run: |
+        curl -s https://pagekite.net/pk/ | sudo python3
+        python3 pagekite.py 5900 javi-mac.pagekite.me
